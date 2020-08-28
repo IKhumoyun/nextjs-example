@@ -5,12 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "mock": "json-server -w db.json -p 3600 -d 1750",
+    "serve": "concurrently \"yarn dev\" \"yarn mock\" "
   },
   "dependencies": {
     "next": "9.5.2",
+    "nextjs-progressbar": "^0.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "sass": "^1.26.10"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }

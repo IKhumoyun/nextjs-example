@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import {MainLayout} from "../components/MainLayout";
 import Link from "next/link";
+import {MyPost} from "../interfaces/post";
+import {NextPageContext} from "next";
 
-const Posts = ({posts: serverPosts}) => {
+interface PostsPageProps {
+    posts: MyPost[];
+
+}
+
+const Posts = ({posts: serverPosts}: PostsPageProps) => {
     const [posts, setPosts] = useState(serverPosts);
     useEffect(() => {
         async function load() {
@@ -40,7 +47,7 @@ const Posts = ({posts: serverPosts}) => {
 
 export default Posts;
 
-Posts.getInitialProps = async ({req}) => {
+Posts.getInitialProps = async ({req}: NextPageContext) => {
     if(!req) {
         return {
             posts: null

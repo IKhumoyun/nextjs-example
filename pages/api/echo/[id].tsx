@@ -1,4 +1,6 @@
-export default function (req, res) {
+import {NextApiRequest, NextApiResponse} from "next";
+
+export default function (req: NextApiRequest, res: NextApiResponse) {
     // res.statusCode = 200;
     // res.setHeader('Content-Type', 'application/json');
     // res.end(req.query.id);
